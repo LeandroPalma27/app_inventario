@@ -13,10 +13,6 @@ public class ProductMapper {
     }
 
     public static ProductEntity toEntity(Product domain) {
-        ProductEntity entity = new ProductEntity();
-        entity.setId(domain.getId());
-        entity.setName(domain.getName());
-        entity.setStock(domain.getStock());
-        return entity;
+        return new ProductEntity(domain.getName(), domain.getStock());
     }
 }

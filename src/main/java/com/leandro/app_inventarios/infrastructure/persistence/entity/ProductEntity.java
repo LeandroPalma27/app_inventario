@@ -1,25 +1,26 @@
 package com.leandro.app_inventarios.infrastructure.persistence.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class ProductEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int stock;
 
-    public Long getId() {
-        return id;
+    public ProductEntity() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public ProductEntity(String name, int stock) {
+        this.name = name;
+        this.stock = stock;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {

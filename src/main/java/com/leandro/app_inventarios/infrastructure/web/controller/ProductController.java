@@ -1,4 +1,4 @@
-package com.leandro.app_inventarios.infrastructure.controller;
+package com.leandro.app_inventarios.infrastructure.web.controller;
 
 import com.leandro.app_inventarios.features.inventory.application.service.ProductService;
 import com.leandro.app_inventarios.features.inventory.domain.model.Product;

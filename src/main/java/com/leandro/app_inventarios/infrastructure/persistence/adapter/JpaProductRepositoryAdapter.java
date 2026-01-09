@@ -1,4 +1,4 @@
-package com.leandro.app_inventarios.infrastructure.persistence;
+package com.leandro.app_inventarios.infrastructure.persistence.adapter;
 
 import com.leandro.app_inventarios.features.inventory.application.port.out.ProductRepositoryPort;
 import com.leandro.app_inventarios.features.inventory.domain.model.Product;
