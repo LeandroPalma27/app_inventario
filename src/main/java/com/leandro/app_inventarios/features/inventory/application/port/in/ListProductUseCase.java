@@ -4,6 +4,6 @@ import com.leandro.app_inventarios.features.inventory.domain.model.Product;
 
 import java.util.List;
 
-public interface ListProductsUseCase {
+public interface ListProductUseCase {
     List<Product> listAll();
 }

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Profile("jpa")
@@ -17,6 +18,12 @@ public class JpaProductRepositoryAdapter implements ProductRepositoryPort {
 
     @Override
     public List<Product> findAll() {
-        return List.of();
+        return null;
     }
+
+    @Override
+    public Optional<Product> findById(Long id) {
+        return Optional.empty();
+    }
+
 }

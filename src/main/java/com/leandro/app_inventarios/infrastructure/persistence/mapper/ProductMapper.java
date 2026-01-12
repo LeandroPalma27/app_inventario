@@ -8,11 +8,12 @@ public class ProductMapper {
         return new Product(
                 entity.getId(),
                 entity.getName(),
-                entity.getStock()
+                entity.getStock(),
+                entity.getCreatedAt()
         );
     }
 
     public static ProductEntity toEntity(Product domain) {
-        return new ProductEntity(domain.getName(), domain.getStock());
+        return new ProductEntity(domain.getName(), domain.getStock(), domain.getCreatedAt());
     }
 }

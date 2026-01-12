@@ -2,6 +2,8 @@ package com.leandro.app_inventarios.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "products")
 public class ProductEntity {
@@ -10,13 +12,15 @@ public class ProductEntity {
     private Long id;
     private String name;
     private int stock;
+    private Instant createdAt;
 
     public ProductEntity() {
     }
 
-    public ProductEntity(String name, int stock) {
+    public ProductEntity(String name, int stock, Instant createdAt) {
         this.name = name;
         this.stock = stock;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -37,5 +41,13 @@ public class ProductEntity {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 }
