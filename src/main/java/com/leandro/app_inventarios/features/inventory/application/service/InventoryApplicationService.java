@@ -37,6 +37,6 @@ public class InventoryApplicationService implements ListProductUseCase, CreatePr
     @Override
     public Product findById(Long id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException(id));
+            .orElseThrow(() -> new ProductNotFoundException(id));
     }
 }

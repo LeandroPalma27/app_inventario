@@ -1,4 +1,4 @@
-package com.leandro.app_inventarios.infrastructure.web.dto.request;
+package com.leandro.app_inventarios.infrastructure.web.request;
 
 import com.leandro.app_inventarios.features.inventory.application.command.CreateProductCommand;
 import jakarta.validation.constraints.Min;

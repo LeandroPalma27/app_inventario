@@ -1,4 +1,4 @@
-package com.leandro.app_inventarios.infrastructure.web.dto.response;
+package com.leandro.app_inventarios.infrastructure.web.response;
 
 public record ApiError(
         String code,
