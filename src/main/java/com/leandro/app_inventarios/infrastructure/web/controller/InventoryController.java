@@ -28,32 +28,20 @@ public class InventoryController {
     GetProductByIdUseCase getProductByIdUseCase;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<ProductResponse>>> listAll(HttpServletRequest httpServletRequest) {
-        List<ProductResponse> products = listProductsUseCase.listAll()
-                .stream()
-                .map(ProductResponse::from)
-                .toList();
-        return ApiResponseFactory.success(products, httpServletRequest.getRequestURI(), HttpStatus.OK);
+    public ResponseEntity<ApiResponse<List<ProductResponse>>> listAll() {
+        List<ProductResponse> products = listProductsUseCase.listAll().stream().map(ProductResponse::from).toList();
+        return ApiResponseFactory.buildSuccess(products, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<ProductResponse>> getById(
-            @PathVariable Long id, HttpServletRequest httpServletRequest) {
+    public ResponseEntity<ApiResponse<ProductResponse>> getById(@PathVariable Long id) {
         Product product = getProductByIdUseCase.findById(id);
-        return ApiResponseFactory.success(
-            ProductResponse.from(product),
-            httpServletRequest.getRequestURI(),
-            HttpStatus.OK
-        );
+        return ApiResponseFactory.buildSuccess(ProductResponse.from(product), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<ProductResponse>> create(@RequestBody CreateProductRequest request, HttpServletRequest httpServletRequest) {
+    public ResponseEntity<ApiResponse<ProductResponse>> create(@RequestBody CreateProductRequest request) {
         Product saved = createProductUseCase.execute(request.toCommand());
-        return ApiResponseFactory.success(
-            ProductResponse.from(saved),
-            httpServletRequest.getRequestURI(),
-            HttpStatus.CREATED
-        );
+        return ApiResponseFactory.buildSuccess(ProductResponse.from(saved), HttpStatus.CREATED);
     }
 }
